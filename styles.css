@@ -61,3 +61,7 @@ textarea {
   color: darkBlue;
   font-weight: bold;
 }
+
+.extension-info {
+  text-align: center;
+}
