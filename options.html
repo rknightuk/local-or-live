@@ -1,74 +1,46 @@
 <!DOCTYPE HTML>
 <html>
-
-	<head>
-	
+<head>
 		<title>Local or Live Options</title>
 
-		<style>
-			body {
-				color: #202020;
-				font-size: 0.8em;
-				font-family: Helvetica,arial,sans-serif;
-			}
+		<link rel="stylesheet" href="styles.css" charset="utf-8" />
+</head>
+<body>
 
-			#wrapper {
-				min-width: 250px;
-				max-width: 600px;
-				margin: 0 auto;
-				padding: 0 5px;
-			}
+		<main>
 
-			.option-wrap {
-				margin-bottom: 5px;
-			}
+				<h1>Local or Live Options</h1>
 
-			#status {
-				color: #00fc4c;
-				font-weight: bold;
-			}
+				<section>
 
-			#version-info {
-				font-size: 80%;
-				text-align: right;
-				text-transform: uppercase;
-				font-weight: bold;
-			}
-		</style>
-		
-	</head>
-	
-	<body>
-		
-		<div id="wrapper">
+						<h2>Local Sites</h2>
 
-			<h1 style="text-align: center;"><strong>Local or Live Options</strong></h1>
-			
-			<div class="option-wrap">	
-				<p><strong>Local Sites</strong> (separated by a new line)</p>
+						<label for="local_sites">Site URIs <small>(separated by a new line)</small></label>
+						<textarea placeholder="localsite.dev" name="local_sites" id="local_sites" rows="10" cols="100"></textarea>
 
-				<p>
-					<textarea placeholder="localsite.dev" name="local" id="local_sites" rows="10" cols="100"></textarea>
-				</p>
-			</div>
+						<label for="local_colour">Bar Colour</label>
+						<input type="color" name="local_colour" id="local_colour" />
 
-			<div class="option-wrap">	
-				<p><strong>Live Sites</strong> (separated by a new line)</p>
+				</section>
 
-				<p>
-					<textarea placeholder="livesite.com" name="live" id="live_sites" rows="10" cols="100"></textarea>
-				</p>
-			</div>
+				<section>
 
-			<p>
+						<h2>Live Sites</h2>
+
+						<label for="live_sites">Site URIs <small>(separated by a new line)</small></label>
+						<textarea placeholder="livesite.com" name="live_sites" id="live_sites" rows="10" cols="100"></textarea>
+
+						<label for="Live_colour">Bar Colour</label>
+						<input type="color" name="live_colour" id="live_colour" />
+
+				</section>
+
 				<button id="save">Save Options</button>
 				<span id="status"></span>
-			</p>
 
-		</div>
+		</main>
 
 		<script src="options.js"></script>
 
-	</body>
-	
+</body>
 </html>

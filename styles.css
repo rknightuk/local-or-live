@@ -1,0 +1,63 @@
+* {
+  box-sizing: border-box;
+}
+
+/* lobotomized owl selector: http://alistapart.com/article/axiomatic-css-and-lobotomized-owls */
+* + * {
+  margin-bottom: .5em;
+}
+
+body {
+  color: #202020;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+main {
+  display: block;
+  max-width: 80em;
+  margin: 0 auto;
+  padding: 0 1em;
+}
+
+section {
+  float: left;
+  width: 50%;
+}
+
+section:first-of-type {
+  padding-right: 1em;
+}
+
+@media (max-width: 40em) {
+  section {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+h1 {
+  text-align: center;
+  font-weight: bold;
+}
+
+button {
+  display: block;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+}
+
+label small {
+  font-weight: 400;
+}
+
+textarea {
+  max-width: 100%;
+}
+
+#status {
+  color: darkBlue;
+  font-weight: bold;
+}

@@ -1,20 +1,20 @@
 chrome.storage.sync.get({
 	local_sites: [],
-	live_sites: []
+	live_sites: [],
+	local_colour: '#26A65B',
+	live_colour: '#EC644B'
 }, function(items) {
-	var localColour = '#26A65B',
-		liveColour = '#EC644B';
 	var local = items.local_sites.split("\n");
 	var live = items.live_sites.split("\n");
 	var origin = window.location.origin;
 	var hostname = window.location.hostname;
 
 	if (local.indexOf(origin) != -1 || local.indexOf(hostname) != -1) {
-		addBanner(localColour);
+		addBanner(items.local_colour);
 	}
 
 	if (live.indexOf(origin) != -1 || live.indexOf(hostname) != -1) {
-		addBanner(liveColour);
+		addBanner(items.live_colour);
 	}
 
 	function addBanner(colour) {
