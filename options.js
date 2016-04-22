@@ -1,4 +1,7 @@
-function save_options() {
+var localDefault = '#26A65B',
+	liveDefault = '#EC644B';
+
+function saveOptions() {
 	chrome.storage.sync.set({
 		local_sites: document.getElementById('local_sites').value,
 		live_sites: document.getElementById('live_sites').value,
@@ -13,12 +16,12 @@ function save_options() {
 	});
 }
 
-function restore_options() {
+function restoreOptions() {
 	chrome.storage.sync.get({
 		local_sites: '',
 		live_sites: '',
-		local_colour: '#26A65B',
-		live_colour: '#EC644B'
+		local_colour: localDefault,
+		live_colour: liveDefault
 	}, function(items) {
 		document.getElementById('local_sites').value = items.local_sites;
 		document.getElementById('live_sites').value = items.live_sites;
@@ -27,5 +30,10 @@ function restore_options() {
 	});
 }
 
-document.addEventListener('DOMContentLoaded', restore_options);
-document.getElementById('save').addEventListener('click', save_options);
+function resetLocal() { document.getElementById('local_colour').value = localDefault; }
+function resetLive() { document.getElementById('live_colour').value = liveDefault; }
+
+document.addEventListener('DOMContentLoaded', restoreOptions);
+document.getElementById('save').addEventListener('click', saveOptions);
+document.getElementById('reset_local').addEventListener('click', resetLocal);
+document.getElementById('reset_live').addEventListener('click', resetLive);
