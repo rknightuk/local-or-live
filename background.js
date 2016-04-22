@@ -20,11 +20,13 @@ chrome.storage.sync.get({
 	function addBanner(colour) {
 		var bar = document.createElement("div");
 		bar.id = "local-or-live-warning-bar";
-		bar.style.width = 100 + "%";
+		bar.style.zIndex = '99999';
 		bar.style.height = 5 + "px";
-		bar.style.background = colour;
 		bar.style.position = 'fixed';
 		bar.style.top = '0';
+		bar.style.left = '0';
+		bar.style.right = '0';
+		bar.style.background = colour;
 		document.body.appendChild(bar);
 	}
 });
