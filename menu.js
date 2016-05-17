@@ -1,5 +1,14 @@
 /* global chrome */
 
+/**
+ * Manages pop-up menu functionality
+ *
+ * @param localLinkSelector - link selector for adding local site
+ * @param liveLinkSelector - link selector for adding live site
+ * @param removeLinkSelector - link selector for removing site from list
+ *
+ * @constructor
+ */
 function Menu(localLinkSelector, liveLinkSelector, removeLinkSelector) {
 
     this.localLinkSelector = localLinkSelector;
@@ -9,6 +18,9 @@ function Menu(localLinkSelector, liveLinkSelector, removeLinkSelector) {
     this.observeMenu();
 }
 
+/**
+ * Observe for interactions with the menu
+ */
 Menu.prototype.observeMenu = function () {
     var self = this;
 
@@ -24,9 +36,14 @@ Menu.prototype.observeMenu = function () {
     });
 };
 
+/**
+ * Add on click observe to selectors and fire the passed callback with args
+ *
+ * @param selector
+ * @param callback
+ * @param args
+ */
 Menu.prototype.addOnClickObserver = function (selector, callback, args) {
-    var self = this;
-
     var links = document.querySelectorAll(selector);
     [].forEach.call(links, function (el) {
         el.addEventListener('click', function (event) {
@@ -37,6 +54,11 @@ Menu.prototype.addOnClickObserver = function (selector, callback, args) {
     }, false);
 };
 
+/**
+ * Add site to "local" list
+ *
+ * @param hostname
+ */
 Menu.prototype.addLocalSite = function (hostname) {
     var self = this;
 
@@ -59,6 +81,11 @@ Menu.prototype.addLocalSite = function (hostname) {
     });
 };
 
+/**
+ * Add site to "live" list
+ *
+ * @param hostname
+ */
 Menu.prototype.addLiveSite = function (hostname) {
     var self = this;
 
@@ -81,6 +108,11 @@ Menu.prototype.addLiveSite = function (hostname) {
     });
 };
 
+/**
+ * Remove site from both local and live lists
+ *
+ * @param hostname
+ */
 Menu.prototype.removeSite = function (hostname) {
     var self = this;
 
@@ -103,6 +135,11 @@ Menu.prototype.removeSite = function (hostname) {
     });
 };
 
+/**
+ * Update stored local sites information
+ *
+ * @param sites
+ */
 Menu.prototype.setLocalSites = function (sites) {
     var self = this;
 
@@ -113,6 +150,11 @@ Menu.prototype.setLocalSites = function (sites) {
     });
 };
 
+/**
+ * Update stored local sites information
+ *
+ * @param sites
+ */
 Menu.prototype.setLiveSites = function (sites) {
     var self = this;
 
@@ -123,6 +165,11 @@ Menu.prototype.setLiveSites = function (sites) {
     });
 };
 
+/**
+ * Send sites updated message for Banner to receive
+ *
+ * @param sites
+ */
 Menu.prototype.sendSitesUpdatedMessage = function (sites) {
     chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
         chrome.tabs.sendMessage(tabs[0].id, {event: ["sites:updated"]}, function (response) {

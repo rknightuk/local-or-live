@@ -1,5 +1,11 @@
 /* global chrome */
 
+/**
+ * Manages banner at the top of the page
+ *
+ * @param bannerId
+ * @constructor
+ */
 function Banner(bannerId) {
 
     this.bannerId = bannerId;
@@ -8,6 +14,11 @@ function Banner(bannerId) {
     this.listen();
 }
 
+/**
+ * Add new banner of specified hex colour
+ *
+ * @param colour
+ */
 Banner.prototype.add = function (colour) {
     var bar = document.createElement("div");
     bar.id = this.bannerId;
@@ -21,6 +32,9 @@ Banner.prototype.add = function (colour) {
     document.body.appendChild(bar);
 };
 
+/**
+ * Remove banner
+ */
 Banner.prototype.remove = function () {
     var bar = document.getElementById(this.bannerId);
     if (bar) {
@@ -28,6 +42,9 @@ Banner.prototype.remove = function () {
     }
 };
 
+/**
+ * Update banner based on latest site information
+ */
 Banner.prototype.update = function () {
     var self = this;
 
@@ -59,6 +76,9 @@ Banner.prototype.update = function () {
     });
 };
 
+/**
+ * Listen for message from menu
+ */
 Banner.prototype.listen = function () {
     var self = this;
     chrome.runtime.onMessage.addListener(function (request) {
