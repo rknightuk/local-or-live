@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+    <style>
+        body {
+            border: 1px #DDD solid;
+            font-family: Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            width: 150px;
+        }
+
+        h1 {
+            background: #26A65B;
+            background: linear-gradient(to right bottom, #26A65B 50%, #EC644B 50%);
+            font-size: 18px;
+            margin: 0;
+            padding: 10px;
+            text-align: center;
+        }
+
+        ul {
+            padding-left: 0;
+            list-style: none
+        }
+
+        a {
+            color: #333;
+            display: block;
+            padding: 5px 0;
+            text-decoration: none;
+        }
+
+        .menu,
+        .menu-footer {
+            padding: 0 5px;
+        }
+
+        .menu-footer {
+            border-top: 1px #DDD solid;
+        }
+    </style>
+    <body>
+        <h1>Local or Live</h1>
+        <ul class="menu">
+            <li class="menu-item">
+                <a href="" class="menu-item-link js-menu-action-local">Mark as Local</a>
+            </li>
+            <li class="menu-item">
+                <a href="" class="menu-item-link js-menu-action-live">Mark as Live</a>
+            </li>
+            <li class="menu-item">
+                <a href="" class="menu-item-link js-menu-action-remove">Unmark</a>
+            </li>
+        </ul>
+
+        <div class="menu-footer">
+            <a href="/options.html" target="_blank">Configure</a>
+        </div>
+		<script src="menu.js"></script>
+        <script src="menu-init.js"></script>
+    </body>
+</html>

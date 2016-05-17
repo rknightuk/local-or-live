@@ -13,11 +13,17 @@
   "content_scripts": [
     {
       "matches": ["http://*/*", "https://*/*"],
-      "js": ["background.js"]
+      "js": ["banner.js"]
     }
   ],
   "options_page": "options.html",
+  "browser_action": {
+      "default_title": "Local or Live",
+      "default_popup": "menu.html"
+  },
   "permissions": [
-    "storage"
+    "storage",
+    "tabs",
+    "activeTab"
   ]
 }
