@@ -1,7 +1,7 @@
 {
   "name": "Local or Live",
   "short_name": "Local or Live",
-  "version": "1.1",
+  "version": "1.2",
   "manifest_version": 2,
   "description": "Add a banner to sites to indicate whether it's local or live.",
   "homepage_url": "http://robblewis.me",
