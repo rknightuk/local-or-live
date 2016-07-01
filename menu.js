@@ -63,11 +63,11 @@ Menu.prototype.addLocalSite = function (hostname) {
     var self = this;
 
     chrome.storage.sync.get({
-        local_sites: [],
-        live_sites: []
+        local_sites: '',
+        live_sites: ''
     }, function (items) {
-        var live = items.live_sites.split("\n");
-        var local = items.local_sites.split("\n");
+        var live = items.live_sites.length === 0 ? [] : items.live_sites.split("\n");
+        var local = items.local_sites.length === 0 ? [] : items.local_sites.split("\n");
 
         if (local.indexOf(hostname) === -1) {
             local.push(hostname);
@@ -90,11 +90,11 @@ Menu.prototype.addLiveSite = function (hostname) {
     var self = this;
 
     chrome.storage.sync.get({
-        local_sites: [],
-        live_sites: []
+        local_sites: '',
+        live_sites: ''
     }, function (items) {
-        var live = items.live_sites.split("\n");
-        var local = items.local_sites.split("\n");
+        var live = items.live_sites.length === 0 ? [] : items.live_sites.split("\n");
+        var local = items.local_sites.length === 0 ? [] : items.local_sites.split("\n");
 
         if (live.indexOf(hostname) === -1) {
             live.push(hostname);
@@ -117,11 +117,11 @@ Menu.prototype.removeSite = function (hostname) {
     var self = this;
 
     chrome.storage.sync.get({
-        live_sites: [],
-        local_sites: []
+        live_sites: '',
+        local_sites: ''
     }, function (items) {
-        var live = items.live_sites.split("\n");
-        var local = items.local_sites.split("\n");
+        var live = items.live_sites.length === 0 ? [] : items.live_sites.split("\n");
+        var local = items.local_sites.length === 0 ? [] : items.local_sites.split("\n");
 
         live = live.filter(function (site) {
             return site != hostname;
