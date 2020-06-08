@@ -5,6 +5,11 @@
   "manifest_version": 2,
   "description": "Add a banner to sites to indicate whether it's local or live.",
   "homepage_url": "http://robblewis.me",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{8370bfc5-9dcc-45e6-89de-e15e6ebdf041}"
+    }
+  },
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
